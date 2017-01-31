@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Earthquakes Data</h1>
+    <div class="" id="details-holder">
+        <div class="" id="country-block">
+            <h2>Hello, <strong>{{ details.userName }} {{ details.userLname }}</strong></h2>
+            <div>
+                The region with the highest number of earthquakes is: 
+                <div>
+                	<input type="text" readonly="" value="{{ details.mostEqPlace }}" class="input-text">
+                </div>
+            </div>
+        </div>
+        <div class="" id="frames-block">
+            <div ng-if="details.highMagSrc">
+                <div>
+                    <h3>Wiki Page</h3></div>
+                <iframe width="100%" height="250" frameborder="0" style="border:0" ng-src="{{ details.highMagSrcWiki }}" allowfullscreen></iframe>
+            </div>
+            <div class="divider"></div>
+            <div ng-if="details.highMagSrcWiki">
+                <div>
+                    <h3>Source URL</h3></div>
+                <iframe width="100%" height="250" frameborder="0" style="border:0" ng-src="{{ details.highMagSrc }}" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>

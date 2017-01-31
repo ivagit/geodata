@@ -1,0 +1,44 @@
+<div class="container">
+    <h1>Earthquakes Data</h1>
+    <form id="get-data-form" name="get-data-form" ng-submit="main.getData()">
+        <div class="input-row">
+            <label class="label" for="fname">First Name</label>
+            <input type="text" ng-model="main.user.fname" name="fname" id="fname" class="input-text" required placeholder="First Name" ng-focus="main.showResult()">
+        </div>
+        <div class="input-row">
+            <label class="label" for="lname">Last Name</label>
+            <input type="text" ng-model="main.user.lname" name="lname" id="lname" class="input-text" placeholder="Last Name" ng-focus="main.showResult()" required>
+        </div>
+        <div class="input-row">
+            <button class="button btn-blue" type="submit">Get Data</button>
+        </div>
+    </form>
+    <div id="results-box">
+
+        <div class="trapezoid" ng-click="main.showResult()"></div>
+
+        <div id="results-box__content" class="clearfix" ng-class="{show: main.showedResult}">
+            <form id="results-box__form" name="calc-data-form" ng-submit="main.calcData()" class="fl">
+                <div class="input-row">
+                    <label class="label" for="long">Longitude</label>
+                    <input type="text" ng-model="main.coords.long" name="long" id="long" class="input-text" required placeholder="Longitude">
+                </div>
+                <div class="input-row">
+                    <label class="label" for="lat">Latitude</label>
+                    <input type="text" ng-model="main.coords.lat" name="lat" id="lat" class="input-text" required placeholder="Latitude">
+                </div>
+                <div class="input-row">
+                    <button class="button btn-blue" type="submit">Evaluate</button>
+                </div>
+            </form>
+
+            <div class="fl">
+                <h3>{{ main.closestEq.properties.title }}</h3> 
+                <div ng-if="main.closestEq">
+                    <iframe width="600" height="450" frameborder="0" style="border:0" ng-src="{{ main.mapSource }}" allowfullscreen></iframe>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
